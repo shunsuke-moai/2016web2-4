@@ -40,7 +40,7 @@
               e.preventDefault();
               var comment=this.state.inputValue;
               this.setState({
-                  comments: this.state.comments.contact(comment),
+                  comments: this.state.comments.concat(comment),
                   inputValue: ''
               })
           },
