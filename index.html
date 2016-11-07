@@ -24,5 +24,39 @@
     <script src="js/react-onsenui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
     <script type="text/babel">
+      var CommentList=React.createClass({
+          render:function(){
+              var comments=this.props.comments.map(function(comment,index){
+                  return<ons-list-item key={index}>{comment}</ons-list-item>;
+              });
+              return(
+                  <ons-list>{comments}</ons-list>
+              );
+          }
+      });
+      
+      render:function(){
+          return(
+              <div>
+                <form
+                  className="comment-form"
+                  onSubmit={this.handleSubmit}>
+                  <ons-col width="60%"align="right">
+                    <input class="text-input"
+                      type="text"
+                      value={this.state.inputValue}
+                      onChange={this.handleChange}/>
+                  </ons-col>
+                  <ons-col width="5%" align="right">
+                  </ons-col>
+                  <ons-col align="left">
+                    <ons-button type="submit" onClick={this.handleSubmit}>add</ons-button>
+                  </ons-col>
+                </ons-row>
+              </form>
+              <commentList comment={this.state.comments}/>
+              </div>
+              );
+              }
   </body>
 </html>
