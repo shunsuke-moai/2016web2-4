@@ -35,6 +35,27 @@
           }
       });
       
+      var CommentApp = React.createClass({
+          getInitialState: function() {
+              return {
+                  comments: [],
+                  inputValue: ''
+              }
+          },
+          handleSubmit: function(e) {
+              e.preventDefault();
+              var comment = this.state.inputValue;
+              this.setState({
+                  comments: this.state.comments.concat(comment),
+                  inputValue: ''
+              })
+          },
+          handleChange: function(e) {
+              this.setState({
+                  inputValue: e.target.value
+              });
+          },
+      
       render:function(){
           return(
               <div>
